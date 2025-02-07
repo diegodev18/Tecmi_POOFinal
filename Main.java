@@ -1,17 +1,9 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Pockemon pockemon = new Pockemon("Pickachu", "Trueno", "Electrico");
-    }
+        ArrayList<Pokemon> pokedex = new ArrayList<>(); // Aquí se crea el ArrayList de Pokemones
 
-    public static class Pockemon {
-        String nombre;
-        String tipo;
-        String habilidad;
-
-        public Pockemon(String nombre, String tipo, String habilidad) {
-            this.nombre = nombre;
-            this.tipo = tipo;
-            this.habilidad = habilidad;
-        }
+        pokedex.add(new Pokemon(null, null, null)); // Aquí se crea un nuevo Pokemon (Cambiar null por los valores que quieras)
     }
 }
