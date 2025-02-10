@@ -43,10 +43,10 @@ public class Main {
                     System.out.println(AnsiColors.RED.TXT + "Falta dinero!");
                 } else {
                     System.out.println(AnsiColors.YELLOW.TXT + "Pago completado!");
+                    pokedex.remove(encontrado);
                 }
                 System.out.print(AnsiColors.RESET);
 
-                pokedex.remove(encontrado);
             } else {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: " + codigo_buscado + "!");
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
