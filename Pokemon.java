@@ -6,13 +6,15 @@ public class Pokemon {
     String tipo;
     String habilidad;
     double precio;
+    int cantidad;
 
-    public Pokemon(int codigo, String nombre, String tipo, String habilidad, double precio) {
+    public Pokemon(int codigo, String nombre, String tipo, String habilidad, double precio, int cantidad) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.tipo = tipo;
         this.habilidad = habilidad;
         this.precio = precio;
+        this.cantidad = cantidad;
     }
 
     public void mostrarDatos() {
