@@ -52,6 +52,7 @@ public class Main {
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
         }
+        
         scanner.close();
     }
 }
