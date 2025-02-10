@@ -19,12 +19,13 @@ public class Main {
             for (Pokemon p : pokedex) {
                 System.out.println(p.nombre + " - " + p.codigo + " - " + p.precio);
             }
-            System.out.println("\nPresione [0] para salir");
-            System.out.print("Ingrese el código: ");
+            System.out.println("\nPresione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
+            System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
             int codigo_buscado = scanner.nextInt();
+            System.out.print(AnsiColors.RESET);
             
             if (codigo_buscado == 0) {
-                System.out.println("Compra terminada");
+                System.out.println(AnsiColors.RED.TXT + "Compra terminada" + AnsiColors.RESET);
                 break;
             }
             System.out.println();
@@ -32,21 +33,23 @@ public class Main {
             Pokemon encontrado = Pokemon.buscar(pokedex, codigo_buscado);
 
             if (encontrado != null) {
-                System.out.println("Tu carta es: ");
+                System.out.println(AnsiColors.GREEN.TXT + "Tu carta es: " + AnsiColors.RESET);
                 encontrado.mostrarDatos();
                 System.out.print("\nIngresa tu pago: ");
                 int pago_maquina = scanner.nextInt();
                 scanner.nextLine();
 
                 if (pago_maquina < encontrado.precio) {
-                    System.out.println("Falta dinero!");
+                    System.out.println(AnsiColors.RED.TXT + "Falta dinero!");
                 } else {
-                    System.out.println("Pago completado!");
+                    System.out.println(AnsiColors.YELLOW.TXT + "Pago completado!");
                 }
+                System.out.print(AnsiColors.RESET);
 
                 pokedex.remove(encontrado);
             } else {
-                System.out.println("No se encuentra: " + codigo_buscado + " - presione 0 para salir");
+                System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: " + codigo_buscado + "!");
+                System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
         }
         scanner.close();
