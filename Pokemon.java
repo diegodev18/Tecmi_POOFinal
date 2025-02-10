@@ -1,33 +1,33 @@
 import java.util.ArrayList;
 
 public class Pokemon {
-    int codigo;
-    String nombre;
-    String tipo;
-    String habilidad;
-    double precio;
-    int cantidad;
+    final int CODIGO;
+    final String NOMBRE;
+    final String TIPO;
+    final String HABILIDAD;
+    final double PRECIO;
+    final int CANTIDAD;
 
     public Pokemon(int codigo, String nombre, String tipo, String habilidad, double precio, int cantidad) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.habilidad = habilidad;
-        this.precio = precio;
-        this.cantidad = cantidad;
+        this.CODIGO = codigo;
+        this.NOMBRE = nombre;
+        this.TIPO = tipo;
+        this.HABILIDAD = habilidad;
+        this.PRECIO = precio;
+        this.CANTIDAD = cantidad;
     }
 
     public void mostrarDatos() {
-        System.out.println("Nombre: " + AnsiColors.YELLOW.TXT + this.nombre + AnsiColors.RESET);
-        System.out.println("Tipo: " + AnsiColors.YELLOW.TXT + this.tipo + AnsiColors.RESET);
-        System.out.println("Habilidad: " + AnsiColors.YELLOW.TXT + this.habilidad + AnsiColors.RESET);
-        System.out.println("Precio: " + AnsiColors.YELLOW.TXT + "$" + this.precio + AnsiColors.RESET);
-        System.out.println("Código: " + AnsiColors.YELLOW.TXT + this.codigo + AnsiColors.RESET);
+        System.out.println("Nombre: " + AnsiColors.YELLOW.TXT + this.NOMBRE + AnsiColors.RESET);
+        System.out.println("Tipo: " + AnsiColors.YELLOW.TXT + this.TIPO + AnsiColors.RESET);
+        System.out.println("Habilidad: " + AnsiColors.YELLOW.TXT + this.HABILIDAD + AnsiColors.RESET);
+        System.out.println("Precio: " + AnsiColors.YELLOW.TXT + "$" + this.PRECIO + AnsiColors.RESET);
+        System.out.println("Código: " + AnsiColors.YELLOW.TXT + this.CODIGO + AnsiColors.RESET);
     }
 
     public static Pokemon buscar(ArrayList<Pokemon> pokedex, int codigo) {
         for (Pokemon p : pokedex) {
-            if (p.codigo == codigo) {
+            if (p.CODIGO == codigo) {
                 return p;
             }
         }
