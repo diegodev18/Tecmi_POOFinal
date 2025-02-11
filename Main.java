@@ -7,24 +7,34 @@ public class Main {
         ArrayList<Pokemon> pokedex = new ArrayList<>(); // Stock de Pokémon
         ArrayList<Pokemon> historialCompras = new ArrayList<>(); // Historial de compras
 
-        // Agregar Pokémon al stock
-        pokedex.add(new Pokemon(101, "Pikachu", "Eléctrico", "Electricidad Estática", 120.50, 5));
-        pokedex.add(new Pokemon(102, "Charmander", "Fuego", "Mar de Llamas", 150.75, 5));
-        pokedex.add(new Pokemon(103, "Bulbasaur", "Planta/Veneno", "Espesura", 130.00, 5));
-        pokedex.add(new Pokemon(104, "Squirtle", "Agua", "Torrente", 140.25, 5));
-        pokedex.add(new Pokemon(105, "Eevee", "Normal", "Fuga", 160.00, 5));
-        pokedex.add(new Pokemon(106, "Gengar", "Fantasma/Veneno", "Levitación", 200.00, 5));
+        // pokedex.add(new Pokemon(null, null, null)); // Aquí se crea un nuevo Pokemon (Cambiar null por los valores que quieras)
+        pokedex.add(new Pokemon(101, "Pikachu", "Eléctrico", "Electricidad Estática", 120, 5));
+        pokedex.add(new Pokemon(102, "Charmander", "Fuego", "Mar de Llamas", 150, 5));
+        pokedex.add(new Pokemon(103, "Bulbasaur", "Planta/Veneno", "Espesura", 130, 5));
+        pokedex.add(new Pokemon(104, "Squirtle", "Agua", "Torrente", 140, 5));
+        pokedex.add(new Pokemon(105, "Eevee", "Normal", "Fuga", 160, 5));
+        pokedex.add(new Pokemon(106, "Gengar", "Fantasma/Veneno", "Levitación", 200, 5));
 
         while (true) {
-            System.out.println("\n¿Qué desea hacer?");
-            System.out.println("[C] Comprar una carta");
-            System.out.println("[H] Ver historial de compras");
-            System.out.println("[0] Salir");
-            System.out.print("Ingrese su opción: ");
-            String opcion = scanner.next().toUpperCase();
-
-            if (opcion.equals("0")) {
-                System.out.println("Saliendo del sistema...");
+            System.out.println("Stock de Pokémon disponible:");
+            System.out.println(AnsiColors.CYAN.TXT + "Nombre" + " ".repeat(10) + "Codigo" + " ".repeat(5) + "Precio" + " ".repeat(5) + "Cantidad" + AnsiColors.RESET);
+            for (Pokemon p : pokedex) {
+                System.out.print(p.NOMBRE);
+                System.out.print(" ".repeat(16 - p.NOMBRE.length()));
+                System.out.print("#" + p.CODIGO);
+                System.out.print(" ".repeat(10 - String.valueOf(p.CODIGO).length()));
+                System.out.print("$" + p.PRECIO);
+                System.out.print(" ".repeat(10 - String.valueOf(p.PRECIO).length()));
+                System.out.print(p.cantidad);
+                System.out.println();
+            }
+            System.out.println("\nPresione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
+            System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
+            int codigo_buscado = scanner.nextInt();
+            System.out.print(AnsiColors.RESET);
+            
+            if (codigo_buscado == 0) {
+                System.out.println(AnsiColors.RED.TXT + "Compra terminada" + AnsiColors.RESET);
                 break;
             } else if (opcion.equals("H")) {
                 System.out.println("\nHistorial de compras:");
