@@ -16,8 +16,16 @@ public class Main {
 
         while (true) {
             System.out.println("Stock de Pokémon disponible:");
+            System.out.println(AnsiColors.CYAN.TXT + "Nombre" + " ".repeat(10) + "Codigo" + " ".repeat(5) + "Precio" + " ".repeat(5) + "Cantidad" + AnsiColors.RESET);
             for (Pokemon p : pokedex) {
-                System.out.println(p.NOMBRE + " - " + p.CODIGO + " - " + p.PRECIO);
+                System.out.print(p.NOMBRE);
+                System.out.print(" ".repeat(16 - p.NOMBRE.length()));
+                System.out.print("#" + p.CODIGO);
+                System.out.print(" ".repeat(10 - String.valueOf(p.CODIGO).length()));
+                System.out.print("$" + p.PRECIO);
+                System.out.print(" ".repeat(10 - String.valueOf(p.PRECIO).length()));
+                System.out.print(p.cantidad);
+                System.out.println();
             }
             System.out.println("\nPresione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
