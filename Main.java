@@ -43,17 +43,25 @@ public class Main {
             if (encontrado != null) {
                 System.out.println(AnsiColors.GREEN.TXT + "Tu carta es: " + AnsiColors.RESET);
                 encontrado.mostrarDatos();
-                System.out.print("\nIngresa tu pago: ");
-                int pago_maquina = scanner.nextInt();
-                scanner.nextLine();
-
-                if (pago_maquina < encontrado.PRECIO) {
-                    System.out.println(AnsiColors.RED.TXT + "Falta dinero!");
-                } else {
-                    System.out.println(AnsiColors.YELLOW.TXT + "Pago completado!");
-                    pokedex.remove(encontrado);
+                
+                while (true) { // aqui lo encerre en el bucle
+                    System.out.print("Ingresa tu pago: ");
+                    int pago_maquina = scanner.nextInt();
+                    scanner.nextLine();
+                
+                    if (pago_maquina < encontrado.PRECIO) 
+                    {
+                        System.out.println(AnsiColors.RED.TXT + " *** Falta dinero! Ingresa el monto exacto ***");
+                    } else if (pago_maquina > encontrado.PRECIO) {
+                        System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
+                        System.out.println(encontrado.PRECIO - pago_maquina);
+                    } else {
+                        System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
+                        pokedex.remove(encontrado);
+                        System.out.print(AnsiColors.RESET);
+                        break; // esto sale del bucle cuando el pago solo sea exacto
+                    }
                 }
-                System.out.print(AnsiColors.RESET);
 
             } else {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: " + codigo_buscado + "!");
