@@ -25,6 +25,14 @@ public class Pokemon {
         System.out.println("Código: " + AnsiColors.YELLOW.TXT + this.CODIGO + AnsiColors.RESET);
     }
 
+    public void disminuirCantidad(int cantidad) {
+        this.cantidad -= cantidad;
+    }
+
+    public void aumentarCantidad(int cantidad) {
+        this.cantidad += cantidad;
+    }
+
     public static Pokemon buscar(ArrayList<Pokemon> pokedex, int codigo) {
         for (Pokemon p : pokedex) {
             if (p.CODIGO == codigo) {
