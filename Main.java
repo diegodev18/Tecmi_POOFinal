@@ -54,10 +54,11 @@ public class Main {
                     } else if (pago_maquina > encontrado.PRECIO) {
                         System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
                         System.out.println(pago_maquina - encontrado.PRECIO);
+                        encontrado.disminuirCantidad(1);
                     } else {
                         System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
-                        encontrado.disminuirCantidad(1);
                         System.out.print(AnsiColors.RESET);
+                        encontrado.disminuirCantidad(1);
                         break; // esto sale del bucle cuando el pago solo sea exacto
                     }
                 }
