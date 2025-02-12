@@ -49,8 +49,7 @@ public class Main {
                     int pago_maquina = scanner.nextInt();
                     scanner.nextLine();
                 
-                    if (pago_maquina < encontrado.PRECIO) 
-                    {
+                    if (pago_maquina < encontrado.PRECIO) {
                         System.out.println(AnsiColors.RED.TXT + " *** Falta dinero! Ingresa el monto exacto ***");
                     } else if (pago_maquina > encontrado.PRECIO) {
                         System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
