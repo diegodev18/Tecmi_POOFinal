@@ -26,10 +26,18 @@ public class Pokemon {
     }
 
     public void disminuirCantidad(int cantidad) {
+        if (this.cantidad - cantidad < 0) {
+            System.out.println(AnsiColors.RED.TXT + "No hay suficiente stock" + AnsiColors.RESET);
+            return;
+        }
         this.cantidad -= cantidad;
     }
 
     public void aumentarCantidad(int cantidad) {
+        if (cantidad < 0) {
+            System.out.println(AnsiColors.RED.TXT + "No se puede agregar una cantidad negativa" + AnsiColors.RESET);
+            return;
+        }
         this.cantidad += cantidad;
     }
 

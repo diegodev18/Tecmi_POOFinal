@@ -56,7 +56,7 @@ public class Main {
                         System.out.println(pago_maquina - encontrado.PRECIO);
                     } else {
                         System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
-                        pokedex.remove(encontrado);
+                        encontrado.disminuirCantidad(1);
                         System.out.print(AnsiColors.RESET);
                         break; // esto sale del bucle cuando el pago solo sea exacto
                     }
