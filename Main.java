@@ -62,7 +62,6 @@ public class Main {
                         break; // esto sale del bucle cuando el pago solo sea exacto
                     }
                 }
-
             } else {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: " + codigo_buscado + "!");
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
