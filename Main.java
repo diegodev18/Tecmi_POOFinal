@@ -40,11 +40,11 @@ public class Main {
 
             Pokemon encontrado = Pokemon.buscar(pokedex, codigo_buscado);
 
-            if (!encontrado.checkStock('d', 1)) {
-                continue;
-            }
-
             if (encontrado != null) {
+                if (!encontrado.checkStock('d', 1)) {
+                    continue;
+                }
+                
                 System.out.println(AnsiColors.GREEN.TXT + "Tu carta es: " + AnsiColors.RESET);
                 encontrado.mostrarDatos();
                 
@@ -68,7 +68,7 @@ public class Main {
                     }
                 }
             } else {
-                System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: " + codigo_buscado + "!");
+                System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: #" + codigo_buscado + "!");
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
         }
