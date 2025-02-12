@@ -40,6 +40,10 @@ public class Main {
 
             Pokemon encontrado = Pokemon.buscar(pokedex, codigo_buscado);
 
+            if (!encontrado.checkStock('d', 1)) {
+                continue;
+            }
+
             if (encontrado != null) {
                 System.out.println(AnsiColors.GREEN.TXT + "Tu carta es: " + AnsiColors.RESET);
                 encontrado.mostrarDatos();

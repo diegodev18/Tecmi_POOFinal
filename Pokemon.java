@@ -26,19 +26,21 @@ public class Pokemon {
     }
 
     public void disminuirCantidad(int cantidad) {
-        if (this.cantidad - cantidad < 0) {
-            System.out.println(AnsiColors.RED.TXT + "No hay suficiente stock" + AnsiColors.RESET);
-            return;
-        }
         this.cantidad -= cantidad;
     }
 
     public void aumentarCantidad(int cantidad) {
-        if (cantidad < 0) {
-            System.out.println(AnsiColors.RED.TXT + "No se puede agregar una cantidad negativa" + AnsiColors.RESET);
-            return;
-        }
         this.cantidad += cantidad;
+    }
+
+    public boolean checkStock(char tipo, int cantidad) {
+        if (tipo == 'a') {
+            System.out.println("No hay suficiente stock de " + this.NOMBRE + " para agregar " + cantidad + " a la compra");
+            return this.cantidad + cantidad >= 0;
+        } else {
+            System.out.println("No hay suficiente stock de " + this.NOMBRE + " para comprar " + cantidad);
+            return this.cantidad - cantidad >= 0;
+        }
     }
 
     public static Pokemon buscar(ArrayList<Pokemon> pokedex, int codigo) {
