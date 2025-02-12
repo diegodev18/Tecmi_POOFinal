@@ -54,7 +54,7 @@ public class Main {
                         System.out.println(AnsiColors.RED.TXT + " *** Falta dinero! Ingresa el monto exacto ***");
                     } else if (pago_maquina > encontrado.PRECIO) {
                         System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
-                        System.out.println(encontrado.PRECIO - pago_maquina);
+                        System.out.println(pago_maquina - encontrado.PRECIO);
                     } else {
                         System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
                         pokedex.remove(encontrado);
