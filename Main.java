@@ -55,11 +55,12 @@ public class Main {
                         System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
                         System.out.println(pago_maquina - encontrado.PRECIO);
                         encontrado.disminuirCantidad(1);
+                        break;
                     } else {
                         System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
                         System.out.print(AnsiColors.RESET);
                         encontrado.disminuirCantidad(1);
-                        break; // esto sale del bucle cuando el pago solo sea exacto
+                        break;
                     }
                 }
             } else {
