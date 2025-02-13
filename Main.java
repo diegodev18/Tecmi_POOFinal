@@ -33,7 +33,7 @@ public class Main {
             Pokemon encontrado = pokedex.buscar(codigo_buscado);
 
             if (encontrado != null) {
-                if (!encontrado.checkStock('d', 1)) {
+                if (!encontrado.checkStock(1)) {
                     continue;
                 }
                 
@@ -63,9 +63,7 @@ public class Main {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: #" + codigo_buscado + "!");
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
-
-            System.out.println("Presione " + AnsiColors.RED.TXT + "Enter" + AnsiColors.RESET + " para continuar");
-            scanner.nextLine();
+            continuarConEnter(scanner);
             limpiarConsola();
         }
         
@@ -75,5 +73,10 @@ public class Main {
     private static void limpiarConsola() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    private static void continuarConEnter(Scanner scanner) {
+        System.out.println("Presione " + AnsiColors.RED.TXT + "Enter" + AnsiColors.RESET + " para continuar");
+        scanner.nextLine();
     }
 }
