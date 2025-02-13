@@ -31,13 +31,11 @@ public class Pokemon {
         this.cantidad += cantidad;
     }
 
-    public boolean checkStock(char tipo, int cantidad) {
-        if (tipo == 'a') {
-            System.out.println("No hay suficiente stock de " + this.NOMBRE + " para agregar " + cantidad + " a la compra");
-            return this.cantidad + cantidad >= 0;
-        } else {
+    public boolean checkStock(int cantidad) {
+        if (this.cantidad < cantidad) {
             System.out.println("No hay suficiente stock de " + this.NOMBRE + " para comprar " + cantidad);
-            return this.cantidad - cantidad >= 0;
+            return false;
         }
+        return true;
     }
 }
