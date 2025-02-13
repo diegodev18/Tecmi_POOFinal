@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Pokedex pokedex = new Pokedex(); // Aquí se crea el ArrayList de Pokemones
+        limpiarConsola();
 
         while (true) {
             System.out.println("Stock de Pokémon disponible:");
@@ -62,8 +63,17 @@ public class Main {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: #" + codigo_buscado + "!");
                 System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
+
+            System.out.println("Presione " + AnsiColors.RED.TXT + "Enter" + AnsiColors.RESET + " para continuar");
+            scanner.nextLine();
+            limpiarConsola();
         }
         
         scanner.close();
+    }
+
+    private static void limpiarConsola() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
