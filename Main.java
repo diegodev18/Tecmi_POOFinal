@@ -1,11 +1,9 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Pokemon> pokedex = new ArrayList<>(); // Aquí se crea el ArrayList de Pokemones
-        Pokedex.iniciarPokedex(pokedex);
+        Pokedex pokedex = new Pokedex(); // Aquí se crea el ArrayList de Pokemones
 
         while (true) {
             System.out.println("Stock de Pokémon disponible:");
