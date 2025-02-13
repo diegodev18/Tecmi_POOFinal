@@ -29,7 +29,7 @@ public class Main {
             }
             System.out.println();
 
-            Pokemon encontrado = Pokemon.buscar(pokedex, codigo_buscado);
+            Pokemon encontrado = pokedex.buscar(codigo_buscado);
 
             if (encontrado != null) {
                 if (!encontrado.checkStock('d', 1)) {

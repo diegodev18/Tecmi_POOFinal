@@ -13,4 +13,13 @@ public class Pokedex extends ArrayList<Pokemon> {
         this.add(new Pokemon(105, "Eevee", "Normal", "Fuga", 160, 5));
         this.add(new Pokemon(106, "Gengar", "Fantasma/Veneno", "Levitación", 200, 5));
     }
+
+    public Pokemon buscar(int codigo) {
+        for (Pokemon p : this) {
+            if (p.CODIGO == codigo) {
+                return p;
+            }
+        }
+        return null;
+    }
 }

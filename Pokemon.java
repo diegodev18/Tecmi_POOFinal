@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Pokemon {
     final int CODIGO;
     final String NOMBRE;
@@ -41,14 +39,5 @@ public class Pokemon {
             System.out.println("No hay suficiente stock de " + this.NOMBRE + " para comprar " + cantidad);
             return this.cantidad - cantidad >= 0;
         }
-    }
-
-    public static Pokemon buscar(ArrayList<Pokemon> pokedex, int codigo) {
-        for (Pokemon p : pokedex) {
-            if (p.CODIGO == codigo) {
-                return p;
-            }
-        }
-        return null;
     }
 }
