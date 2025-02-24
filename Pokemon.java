@@ -5,6 +5,7 @@ public class Pokemon {
     final String HABILIDAD;
     final double PRECIO;
     int cantidad;
+    String propietario;
 
     public Pokemon(int codigo, String nombre, String tipo, String habilidad, double precio, int cantidad) {
         this.CODIGO = codigo;
@@ -13,6 +14,7 @@ public class Pokemon {
         this.HABILIDAD = habilidad;
         this.PRECIO = precio;
         this.cantidad = cantidad;
+        this.propietario = null;
     }
 
     public void mostrarDatos() {
