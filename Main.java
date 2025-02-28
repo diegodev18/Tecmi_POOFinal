@@ -20,24 +20,27 @@ public class Main {
                 System.out.println();
             }
             
-            System.out.println("\nPresione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
-            System.out.println("Presione [" + AnsiColors.RED.TXT + "00" + AnsiColors.RESET + "] para ver el Registro de Compras");
+            System.out.println("\nPresione [" + AnsiColors.RED.TXT + "S" + AnsiColors.RESET + "] para salir");
+            System.out.println("Presione [" + AnsiColors.RED.TXT + "R" + AnsiColors.RESET + "] para ver el Registro de Compras");
             
             System.out.print(AnsiColors.BLUE.TXT + "Ingrese tu Nombre: ");
             String nombre = scanner.nextLine();
-            System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
-            int codigo_buscado = scanner.nextInt();
-            scanner.nextLine(); 
-            System.out.print(AnsiColors.RESET);
 
-            if (codigo_buscado == 00) {
+            if (nombre.equals("R")) {
                 Registro_Compras.mostrarCompras();
                 continue;
             }
-            if (codigo_buscado == 0) {
+            if (nombre.equals("S")) {
                 System.out.println(AnsiColors.RED.TXT + "Compra terminada" + AnsiColors.RESET);
                 break;
             }
+
+            System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
+            int codigo_buscado = scanner.nextInt();
+            
+            scanner.nextLine(); 
+            System.out.print(AnsiColors.RESET);
+
             System.out.println();
 
             Pokemon encontrado = pokedex.buscar(codigo_buscado);
