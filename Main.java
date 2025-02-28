@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Pokedex pokedex = new Pokedex(); // Aquí se crea el ArrayList de Pokemones
+        Pokedex pokedex = new Pokedex(); 
         limpiarConsola();
 
         while (true) {
@@ -19,11 +19,21 @@ public class Main {
                 System.out.print(p.cantidad);
                 System.out.println();
             }
+            
             System.out.println("\nPresione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
+            System.out.println("Presione [" + AnsiColors.RED.TXT + "00" + AnsiColors.RESET + "] para ver el Registro de Compras");
+            
+            System.out.print(AnsiColors.BLUE.TXT + "Ingrese tu Nombre: ");
+            String nombre = scanner.nextLine();
             System.out.print(AnsiColors.BLUE.TXT + "Ingrese el código: ");
             int codigo_buscado = scanner.nextInt();
+            scanner.nextLine(); 
             System.out.print(AnsiColors.RESET);
-            
+
+            if (codigo_buscado == 00) {
+                Registro_Compras.mostrarCompras();
+                continue;
+            }
             if (codigo_buscado == 0) {
                 System.out.println(AnsiColors.RED.TXT + "Compra terminada" + AnsiColors.RESET);
                 break;
@@ -36,32 +46,33 @@ public class Main {
                 if (!encontrado.checkStock(1)) {
                     continue;
                 }
-                
+
                 System.out.println(AnsiColors.GREEN.TXT + "Tu carta es: " + AnsiColors.RESET);
                 encontrado.mostrarDatos();
-                
-                while (true) { // aqui lo encerre en el bucle
+
+                while (true) {
                     System.out.print("Ingresa tu pago: ");
                     int pago_maquina = scanner.nextInt();
                     scanner.nextLine();
-                
+
                     if (pago_maquina < encontrado.PRECIO) {
                         System.out.println(AnsiColors.RED.TXT + " *** Falta dinero! Ingresa el monto exacto ***");
-                    } else if (pago_maquina > encontrado.PRECIO) {
-                        System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio");
-                        System.out.println(pago_maquina - encontrado.PRECIO);
-                        encontrado.disminuirCantidad(1);
-                        break;
                     } else {
-                        System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
+                        if (pago_maquina > encontrado.PRECIO) {
+                            System.out.println(AnsiColors.RED.TXT + "Pagado - Tu cambio: $" + (pago_maquina - encontrado.PRECIO));
+                        } else {
+                            System.out.println(AnsiColors.YELLOW.TXT + "* Pago completado *");
+                        }
                         System.out.print(AnsiColors.RESET);
                         encontrado.disminuirCantidad(1);
+
+                        Registro_Compras.registrarCompra(nombre, encontrado.NOMBRE);
+                        System.out.println("Compra exitosamente.");
                         break;
                     }
                 }
             } else {
                 System.out.println(AnsiColors.CYAN.TXT + "¡No se encuentra: #" + codigo_buscado + "!");
-                System.out.println("Presione [" + AnsiColors.RED.TXT + "0" + AnsiColors.RESET + "] para salir");
             }
             continuarConEnter(scanner);
             limpiarConsola();
