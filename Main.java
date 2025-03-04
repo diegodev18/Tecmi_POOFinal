@@ -26,11 +26,11 @@ public class Main {
             System.out.print(AnsiColors.BLUE.TXT + "Ingrese tu Nombre: ");
             String nombre = scanner.nextLine();
 
-            if (nombre.equals("R")) {
+            if (nombre.toLowerCase().equals("r")) {
                 Registro_Compras.mostrarCompras();
                 continue;
             }
-            if (nombre.equals("S")) {
+            if (nombre.toLowerCase().equals("s")) {
                 System.out.println(AnsiColors.RED.TXT + "Compra terminada" + AnsiColors.RESET);
                 break;
             }
